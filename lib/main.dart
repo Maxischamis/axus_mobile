@@ -24,11 +24,10 @@ class AxusApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        colorScheme: ColorScheme.dark(
-          primary: const Color(0xFFD4AF37),
-          secondary: const Color(0xFFD4AF37),
-          surface: const Color(0xFF0D0D0F),
-          background: const Color(0xFF030303),
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFFD4AF37),
+          secondary: Color(0xFFD4AF37),
+          surface: Color(0xFF0D0D0F),
         ),
         scaffoldBackgroundColor: const Color(0xFF030303),
         textTheme: const TextTheme(
@@ -58,7 +57,7 @@ class AxusApp extends StatelessWidget {
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
-          hintStyle: TextStyle(color: Colors.white.withOpacity(0.25)),
+          hintStyle: const TextStyle(color: Color.fromRGBO(255, 255, 255, 0.25)),
         ),
         cardTheme: CardThemeData(
           color: const Color(0xFF0D0D0F),
@@ -66,13 +65,13 @@ class AxusApp extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 8,
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: false,
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextStyle(
               fontSize: 20, fontWeight: FontWeight.w900, color: Colors.white),
-          iconTheme: const IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       home: const SearchScreen(),

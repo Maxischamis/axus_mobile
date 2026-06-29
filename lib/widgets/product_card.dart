@@ -75,10 +75,10 @@ class _ProductCardState extends State<ProductCard>
       decoration: BoxDecoration(
         color: const Color(0xFF0D0D0F),
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(color: const Color.fromRGBO(255, 255, 255, 0.08)),
         boxShadow: [
           BoxShadow(
-            color: storeColor.withOpacity(0.08),
+            color: storeColor.withAlpha((0.08 * 255).round()),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -130,7 +130,7 @@ class _ProductCardState extends State<ProductCard>
                 errorWidget: (context, url, error) => Icon(
                     Icons.inventory_2_outlined,
                     size: 30,
-                    color: storeColor.withOpacity(0.2)),
+                    color: storeColor.withAlpha((0.2 * 255).round())),
                 fit: BoxFit.contain,
               ),
             ),
@@ -151,7 +151,8 @@ class _ProductCardState extends State<ProductCard>
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.red.withOpacity(0.28), blurRadius: 10)
+                        color: Colors.red.withAlpha((0.28 * 255).round()),
+                        blurRadius: 10)
                   ],
                 ),
                 child: Row(
@@ -178,9 +179,10 @@ class _ProductCardState extends State<ProductCard>
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.8),
+              color: Colors.black.withAlpha((0.8 * 255).round()),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: storeColor.withOpacity(0.4)),
+              border:
+                  Border.all(color: storeColor.withAlpha((0.4 * 255).round())),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -260,7 +262,7 @@ class _ProductCardState extends State<ProductCard>
                 child: Text(
                   ',${priceParts[1]}',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withAlpha((0.3 * 255).round()),
                     fontSize: 12,
                     fontWeight: FontWeight.w800,
                   ),
@@ -305,14 +307,14 @@ class _ShimmerPlaceholder extends StatelessWidget {
                 end: Alignment(1 + controller.value * 2, 0.3),
                 colors: [
                   Colors.white12,
-                  color.withOpacity(0.12),
+                  color.withAlpha((0.12 * 255).round()),
                   Colors.white12
                 ],
                 stops: const [0.1, 0.5, 0.9],
               ).createShader(rect);
             },
-            child: Container(color: Colors.white.withOpacity(0.02)),
             blendMode: BlendMode.srcATop,
+            child: Container(color: const Color.fromRGBO(255, 255, 255, 0.02)),
           ),
         );
       },

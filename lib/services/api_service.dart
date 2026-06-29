@@ -253,8 +253,9 @@ class ApiService {
             List<String> promos = [];
             if (d["badges"] != null) {
               for (var b in (d["badges"] as List)) {
-                if (b["text"] != null)
+                if (b["text"] != null) {
                   promos.add(b["text"].toString().toUpperCase());
+                }
               }
             }
 
@@ -307,21 +308,29 @@ class ApiService {
       List<Future<List<Product>>> tasks = [];
       bool all = stores == null || stores.isEmpty;
 
-      if (all || stores.contains("COTO")) tasks.add(_searchCoto(query, page));
-      if (all || stores.contains("CARREFOUR"))
+      if (all || stores.contains("COTO")) {
+        tasks.add(_searchCoto(query, page));
+      }
+      if (all || stores.contains("CARREFOUR")) {
         tasks.add(_searchVtex("CARREFOUR", query, page));
-      if (all || stores.contains("VEA"))
+      }
+      if (all || stores.contains("VEA")) {
         tasks.add(_searchVtex("VEA", query, page));
-      if (all || stores.contains("JUMBO"))
+      }
+      if (all || stores.contains("JUMBO")) {
         tasks.add(_searchVtex("JUMBO", query, page));
-      if (all || stores.contains("ATOMO"))
+      }
+      if (all || stores.contains("ATOMO")) {
         tasks.add(_searchVtex("ATOMO", query, page));
+      }
 
       final allResults = await Future.wait(tasks);
       products = allResults.expand((x) => x).toList();
 
       // Limit cache size
-      if (_cache.length > 50) _cache.clear();
+      if (_cache.length > 50) {
+        _cache.clear();
+      }
       _cache[cacheKey] = products;
     }
 
