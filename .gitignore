@@ -1,0 +1,9 @@
+# Android/Flutter ignores
+**/build/
+**/.dart_tool/
+**/.packages
+**/pubspec.lock
+**/android/local.properties
+
+# Firebase service account
+firebase-service-account.json
